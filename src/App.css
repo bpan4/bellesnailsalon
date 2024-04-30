@@ -108,7 +108,7 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-  .home__content {
+  .content--home {
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
