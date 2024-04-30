@@ -70,7 +70,7 @@ const App = () => {
 
   const copyright = () => {
     const currentYear = new Date().getFullYear();
-    return <p> &copy; Belle Pan's Salon {currentYear} </p>
+    return <p> &copy; Belle's Nail Salon {currentYear} </p>
   }
 
   return (
