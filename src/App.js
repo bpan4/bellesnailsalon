@@ -126,7 +126,10 @@ const App = () => {
           className="subsection home"
         >
           <div className="home__content">
-            { homepageTitle() }
+            <div className="home__text">
+              { homepageTitle() }
+              <div className="subtitle">A Montréal-based home nail salon</div>
+            </div>
             <InstagramItems/>
           </div>
         </Subsection>

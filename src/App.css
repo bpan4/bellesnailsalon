@@ -45,6 +45,11 @@ body {
   padding: 0 6vw;
 }
 
+.home__text {
+  display: flex;
+  flex-direction: column;
+}
+
 .home__title {
   white-space: nowrap;
   overflow: hidden;
