@@ -1,8 +1,12 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import InstagramItems from "./InstagramItems";
 import "./App.css";
 
 const App = () => {
+  // stores images from Instagram API
+  const [imageList, setImageList] = useState([])
+
   // manages whether sections are shown
   const [show, setShow] = useState({
     showHome: true,
@@ -10,6 +14,7 @@ const App = () => {
     showAbout: false,
     showContact: false
   });
+
   // references for each section
   const workRef = useRef(null);
   const aboutRef = useRef(null);
@@ -80,7 +85,15 @@ const App = () => {
           animate={show.showHome} 
           className="subsection home"
         >
-          HOME
+          <div className="home__content">
+            <div>
+              Welcome to Belle's Nail Salon!
+            </div>
+            <InstagramItems 
+              imageList={imageList} 
+              setImageList={setImageList}
+            />
+          </div>
         </Subsection>
         <Subsection 
           animate={show.showWork} 

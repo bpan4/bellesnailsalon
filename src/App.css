@@ -36,6 +36,13 @@ body {
   background-color: #B6D8FF;
 }
 
+.home__content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10vw;
+}
+
 .work {
   background-color: #D0D8FF;
 }
@@ -46,4 +53,16 @@ body {
 
 .contact {
   background-color: #F8D6E6;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.subtitle {
+  font-size: 16px;
+}
+
+.paragraph {
+  font-size: 11px;
 }
