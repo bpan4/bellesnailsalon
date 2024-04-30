@@ -1,8 +1,6 @@
 import React from "react";
 
-const IMAGE_TYPE = "IMAGE";
 const VIDEO_TYPE = "VIDEO";
-const CAROUSEL_TYPE = "CAROUSEL_ALBUM"
 
 const InstagramLayout = ({ imageList }) => {
     return (
@@ -14,6 +12,7 @@ const InstagramLayout = ({ imageList }) => {
                             src={image.mediaUrl}
                             height={"50px"}
                             width={"50px"}
+                            alt="Instagram video from @nail.chimp"
                         />
                     )
                 }
@@ -22,6 +21,7 @@ const InstagramLayout = ({ imageList }) => {
                         src={image.mediaUrl} 
                         height={"50px"}
                         width={"50px"}
+                        alt="Instagram post from @nail.chimp"
                     />
                 )
             })}

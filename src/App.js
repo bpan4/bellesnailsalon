@@ -4,8 +4,6 @@ import InstagramItems from "./InstagramItems";
 import "./App.css";
 
 const App = () => {
-  // stores images from Instagram API
-  const [imageList, setImageList] = useState([])
 
   // manages whether sections are shown
   const [show, setShow] = useState({
@@ -89,10 +87,7 @@ const App = () => {
             <div>
               Welcome to Belle's Nail Salon!
             </div>
-            <InstagramItems 
-              imageList={imageList} 
-              setImageList={setImageList}
-            />
+            <InstagramItems/>
           </div>
         </Subsection>
         <Subsection 
