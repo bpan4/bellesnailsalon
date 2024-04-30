@@ -32,17 +32,32 @@ body {
   margin-bottom: 0;
 }
 
-.home {
+.subsection--home {
   background-color: #B6D8FF;
 }
 
-.home__content {
+.subsection--work {
+  background-color: #D0D8FF;
+}
+
+.subsection--about {
+  background-color: #DFD2FF;
+}
+
+.subsection--contact {
+  background-color: #F8D6E6;
+}
+
+.content {
   height: 90vh;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   padding: 0 6vw;
+}
+
+.content--home {
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .home__text {
@@ -65,18 +80,6 @@ body {
   max-width: 12vw;
   border: solid 10px #FFF;
   margin: 10px;
-}
-
-.work {
-  background-color: #D0D8FF;
-}
-
-.about {
-  background-color: #DFD2FF;
-}
-
-.contact {
-  background-color: #F8D6E6;
 }
 
 .title {

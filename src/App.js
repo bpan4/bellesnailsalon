@@ -123,9 +123,9 @@ const App = () => {
       <div className="wrapper">
         <Subsection
           animate={show.showHome} 
-          className="subsection home"
+          className="subsection subsection--home"
         >
-          <div className="home__content">
+          <div className="content content--home">
             <div className="home__text">
               { homepageTitle() }
               <div className="subtitle">A Montréal-based home nail salon</div>
@@ -136,7 +136,7 @@ const App = () => {
         <Subsection 
           animate={show.showWork} 
           ref={workRef}
-          className="subsection work"
+          className="subsection subsection--work"
         >
           WORK SECTION
         </Subsection>
@@ -144,14 +144,14 @@ const App = () => {
         <Subsection 
           animate={show.showAbout} 
           ref={aboutRef}
-          className="subsection about"
+          className="subsection subsection--about"
         >
           ABOUT SECTION
         </Subsection>
         <Subsection 
           animate={show.showContact} 
           ref={contactRef}
-          className="subsection contact"
+          className="subsection subsection--contact"
         >
           CONTACT SECTION
         </Subsection>
