@@ -5,6 +5,10 @@ import "./App.css";
 
 const App = () => {
 
+  // state for window width
+  const [isTablet, setIsTablet] = useState(window.innerWidth < 910);
+  const [isPhone, setIsPhone] = useState(window.innerWidth < 480);
+
   // manages whether sections are shown
   const [show, setShow] = useState({
     showHome: true,
@@ -21,7 +25,7 @@ const App = () => {
   // scroll to top of the page when page renders/refreshes
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
 
   useLayoutEffect(() => {
     // gets top of page
@@ -67,10 +71,48 @@ const App = () => {
       }
     };
 
+
+    // event listener for when window is resized
+    const updateSize = () => {
+      setIsTablet(window.innerWidth < 910);
+      setIsPhone(window.innerWidth < 480);
+    }
+
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", updateSize);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", updateSize);
+    }
   }, []);
 
+  // homepage title content
+  const homepageTitle = () => {
+    if (isPhone) {
+      return (
+        <div className="title">
+          <div> Welcome to</div>
+          <div> Belle's</div>
+          <div>Nail Salon</div>
+        </div>
+      );
+    } else if (isTablet) {
+      return (
+        <div className="title">
+          <div> Welcome to</div>
+          <div> Belle's Nail Salon </div>
+        </div>
+      );
+    }
+    return (
+      <div className="home__title title">
+        Welcome to Belle's Nail Salon
+      </div>
+    );
+  }
+
+  // copyright section
   const copyright = () => {
     const currentYear = new Date().getFullYear();
     return <p> &copy; Belle's Nail Salon {currentYear} </p>
@@ -84,9 +126,7 @@ const App = () => {
           className="subsection home"
         >
           <div className="home__content">
-            <div>
-              Welcome to Belle's Nail Salon!
-            </div>
+            { homepageTitle() }
             <InstagramItems/>
           </div>
         </Subsection>
