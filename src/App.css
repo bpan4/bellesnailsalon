@@ -4,6 +4,10 @@ body {
   padding: 0;
 }
 
+* {
+  color: #404040;
+}
+
 .wrapper {
   margin-top: 5vh;
   margin-bottom: 5vh;
@@ -42,8 +46,4 @@ body {
 
 .contact {
   background-color: #F8D6E6;
-}
-
-.text {
-  color: #404040;
 }
