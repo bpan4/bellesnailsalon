@@ -164,16 +164,15 @@ td {
   transition: transform 0.3s, background-color 0.3s, color 0.3s;
 }
 
+.submit_button:focus {
+  outline: solid var(--contact-color-contrast) 2px;
+}
+
 .submit_button:hover {
   transform: scale(1.1);
   background-color: var(--contact-color-contrast);
   color: white;
   outline: none;
-}
-
-.submit_button:focus,
-.submit_button:hover {
-  outline: solid var(--contact-color-contrast) 2px;
 }
 
 textarea, input {

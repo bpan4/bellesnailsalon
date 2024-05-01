@@ -162,10 +162,10 @@ const App = () => {
 
   return (
     <div className="wrapper">  
-      {/* {loading && <div className="loading"> Loading... </div>} */}
+      {loading && <div className="loading"> Loading... </div>}
         <div style={{
-          // visibility: loading ? "hidden" : "visible", 
-          // animation: loading ? "" : "fade-in 2s"
+          visibility: loading ? "hidden" : "visible", 
+          animation: loading ? "" : "fade-in 2s"
         }}>
           {/* Home */}
           <Subsection

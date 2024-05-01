@@ -62,11 +62,10 @@ const ContactPage = () => {
             })
             .then(
                 () => {
-                    console.log('Email sent successfully');
                     setSubmitted(true);
                 },
                 (sendError) => {
-                    console.log('Email failed to send', sendError);
+                    console.error('Email failed to send', sendError);
                     setSendError(true);
                 },
             );
