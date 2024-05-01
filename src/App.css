@@ -291,9 +291,6 @@ textarea:focus, input:focus {
 }
 
 @media screen and (max-width: 375px) {
-  .content {
-    padding-top: 2vh;
-  }
   .title {
     font-size: 20px;
     font-weight: 600;
