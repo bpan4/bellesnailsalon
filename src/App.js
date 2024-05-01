@@ -2,9 +2,10 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import InstagramItems from "./InstagramItems";
 import WorkPage from "./WorkPage";
+import AboutPage from "./AboutPage";
+import ContactPage from "./ContactPage";
 import { CITY } from "./Constants";
 import "./App.css";
-import AboutPage from "./AboutPage";
 
 const App = () => {
 
@@ -161,10 +162,10 @@ const App = () => {
 
   return (
     <div className="wrapper">  
-      {loading && <div className="loading"> Loading... </div>}
+      {/* {loading && <div className="loading"> Loading... </div>} */}
         <div style={{
-          visibility: loading ? "hidden" : "visible", 
-          animation: loading ? "" : "fade-in 2s"
+          // visibility: loading ? "hidden" : "visible", 
+          // animation: loading ? "" : "fade-in 2s"
         }}>
           {/* Home */}
           <Subsection
@@ -208,7 +209,7 @@ const App = () => {
             className="subsection subsection--contact"
             id="contact_anchor"
           >
-            CONTACT SECTION
+            <ContactPage />
           </Subsection>
           {copyright()}
           {footnotes()}

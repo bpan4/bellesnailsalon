@@ -1,3 +1,12 @@
+:root {
+  --text-color: #404040;
+  --home-color: #B6D8FF;
+  --work-color: #D0D8FF;
+  --about-color: #DFD2FF;
+  --contact-color: #F8D6E6;
+  --contact-color-contrast: #81184D;
+}
+
 body {
   font-family: Verdana, sans-serif;
   margin: 0;
@@ -5,7 +14,7 @@ body {
 }
 
 * {
-  color: #404040;
+  color: var(--text-color);
 }
 
 .wrapper {
@@ -39,19 +48,19 @@ body {
 }
 
 .subsection--home {
-  background-color: #B6D8FF;
+  background-color: var(--home-color);
 }
 
 .subsection--work {
-  background-color: #D0D8FF;
+  background-color: var(--work-color);
 }
 
 .subsection--about {
-  background-color: #DFD2FF;
+  background-color: var(--about-color);
 }
 
 .subsection--contact {
-  background-color: #F8D6E6;
+  background-color: var(--contact-color);
 }
 
 .content {
@@ -103,7 +112,7 @@ body {
 
 .media {
   max-width: 12vw;
-  border: solid 10px #FFF;
+  border: solid 10px white;
   margin: 10px;
 }
 
@@ -113,7 +122,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 50%;
+  height: 60%;
 }
 
 .pricing_table__container {
@@ -122,7 +131,7 @@ body {
   align-items: center;
   width: 100%;
   height: 80%;
-  border: solid #FFF 10px;
+  border: solid white 10px;
 }
 
 .pricing {
@@ -142,8 +151,51 @@ td {
 }
 
 .map {
-  border: solid #FFF 10px;
+  border: solid white 10px;
   width: 800;
+}
+
+.submit_button {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  height: 5vh;
+  width: 50vw;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.submit_button:hover {
+  transform: scale(1.1);
+  background-color: var(--contact-color-contrast);
+  color: white;
+  outline: none;
+}
+
+.submit_button:focus,
+.submit_button:hover {
+  outline: solid var(--contact-color-contrast) 2px;
+}
+
+textarea, input {
+  width: 50vw;
+  margin-bottom: 2vh;
+  border: none;
+  border-radius: 0;
+  color: var(--text-color);
+}
+
+textarea {
+  height: 50%;
+  resize: none;
+}
+
+textarea:focus, input:focus {
+  border: none;
+  outline: solid var(--contact-color-contrast) 2px;
+}
+
+.error {
+  color: var(--contact-color-contrast);
 }
 
 .title {
@@ -210,7 +262,7 @@ td {
 
 @media screen and (max-width: 480px) {
   .media {
-    border: solid 5px #FFF;
+    border: solid 5px white;
     width: 60vw;
   }
   .subtitle--pricing {
@@ -224,7 +276,7 @@ td {
   }
   .pricing_table__container{
     height: 100%;
-    border: solid 5px #FFF;
+    border: solid 5px white;
   }
   th {
     padding-top: 10px;
