@@ -147,7 +147,7 @@ const App = () => {
   // copyright section
   const copyright = () => {
     const currentYear = new Date().getFullYear();
-    return <p className="centered_text"> 
+    return <p className="tinytext centered_text"> 
       &copy; Belle's Nail Salon {currentYear} 
     </p>
   }

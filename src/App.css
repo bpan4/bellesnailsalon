@@ -75,6 +75,15 @@ body {
   align-items: flex-start;
 }
 
+.content--about {
+  height: 78vh;
+  padding-top: 6vh;
+  padding-bottom: 6vh;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .text {
   display: flex;
   flex-direction: column;

@@ -3,7 +3,7 @@ import { INSTAGRAM_URL, NEAREST_TRANSIT_STATION, STUDIO_ACCESSIBILITY } from "./
 
 const AboutPage = ({ scrollToContact, mapSize }) => {
     return (
-        <div className="content content--work">
+        <div className="content content--about">
             <div className="text">
                 <div className="title">
                     Location and Appointments
