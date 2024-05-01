@@ -51,7 +51,22 @@ const AboutPage = ({ scrollToContact, mapSize }) => {
             </div>
             <div className="tinytext" style={{paddingTop: "10px"}}>
                 <b>Accessibility</b>
-                {`: The ${NEAREST_TRANSIT_STATION.name} is ${NEAREST_TRANSIT_STATION.accessibility}. ${STUDIO_ACCESSIBILITY}.`}
+                {`: The ${NEAREST_TRANSIT_STATION.name} is ${NEAREST_TRANSIT_STATION.accessibility}. `}
+                {
+                    NEAREST_TRANSIT_STATION.accessibilityVerifier !== "" && 
+                    <span>
+                        {`You may check the accessibility status of the ${NEAREST_TRANSIT_STATION.name} `}
+                        <a 
+                            href={NEAREST_TRANSIT_STATION.accessibilityVerifier}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            here
+                        </a>
+                        {`. `}
+                    </span>
+                } 
+                {STUDIO_ACCESSIBILITY}.
             </div>
         </div>
     );
