@@ -179,20 +179,9 @@ td {
 }
 
 @media screen and (max-width: 480px) {
-  .content--home {
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-  }
-  .media__container{
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-end;
-    width: 100%;
-  }
   .media {
     border: solid 5px #FFF;
-    max-width: 50vw;
+    width: 60vw;
   }
   .content--work{
     height: 85vh;
