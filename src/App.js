@@ -129,7 +129,7 @@ const App = () => {
   // copyright section
   const copyright = () => {
     const currentYear = new Date().getFullYear();
-    return <p> &copy; Belle's Nail Salon {currentYear} </p>
+    return <p style={{textAlign: "center"}}> &copy; Belle's Nail Salon {currentYear} </p>
   }
 
   return (
