@@ -27,7 +27,7 @@ export const PRICING_LIST = [
     },
     {
         "service" : "Nail Art", 
-        "price" : "5",
+        "price" : "Starting at $5",
         "time" : "Varies depending on design"
     },
 ];
@@ -39,7 +39,7 @@ export const PRICING_NOTICES = [
     },
     {
         "title" : "Nail art", 
-        "content" : "please communicate your desired design a few days prior so I may be able to provide a more accurate estimate for how long your appointment may be."
+        "content" : "please communicate your desired design a few days prior so I may be able to provide a more accurate estimate for the price and how long your appointment may be."
     }
 ];
  

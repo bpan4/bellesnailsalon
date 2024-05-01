@@ -132,7 +132,9 @@ const App = () => {
     return (
       <div>
         {PRICING_NOTICES.map((notice) => {
-          return <p className="tinytext">*<b>{notice.title}</b>: {notice.content}</p>
+          return <p className="tinytext" key={notice.title}>
+            *<b>{notice.title}</b>: {notice.content}
+          </p>
         })}
       </div>
     );

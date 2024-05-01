@@ -5,13 +5,15 @@ const PricingTable = () => {
     return (
         <div className="pricing_table__container">
             <table className="pricing">
-                {PRICING_LIST.map((service) => {
-                    return <tr>
-                        <th>{service.service}</th>
-                        <td>${service.price}</td>
-                        <td>{parseFloat(service.time) ? `${service.time} hrs`: service.time}</td>
-                    </tr>
-                })}
+                <tbody>
+                    {PRICING_LIST.map((service) => {
+                        return <tr key={service.service}>
+                            <th>{service.service}</th>
+                            <td>{parseInt(service.price) ? `$${service.price}` : service.price}</td>
+                            <td>{parseFloat(service.time) ? `${service.time} hrs`: service.time}</td>
+                        </tr>
+                    })}
+                </tbody>
             </table>
         </div> 
     );
