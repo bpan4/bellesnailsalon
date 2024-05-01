@@ -20,13 +20,7 @@ body {
 .loading {
   display: inline-block;
   clip-path: inset(0 1.5ch 0 0);
-  animation: l 1s steps(4) infinite;
-}
-
-@keyframes l {
-  to {
-    clip-path: inset(0 -1ch 0 0)
-  }
+  animation: load-in 1s steps(4) infinite;
 }
 
 .subsection {
@@ -157,6 +151,22 @@ td {
   font-size: 11px;
 }
 
+@keyframes load-in {
+  to {
+    clip-path: inset(0 -1ch 0 0)
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .media {
     width: 14vw;
@@ -206,14 +216,5 @@ td {
   }
   td {
     font-size: 12px;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 100;
   }
 }
