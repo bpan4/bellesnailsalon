@@ -11,10 +11,12 @@ const ContactPage = () => {
     // env variables used by EmailJS
     const serviceId = process.env.REACT_APP_EMAIL_SERVICE_ID;
     const templateId = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
-    const publicKey = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
 
     // initialize EmailJS with the public key
-    useEffect(() => emailjs.init({publicKey: publicKey}), []);
+    useEffect(() => {
+        const publicKey = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
+        emailjs.init({publicKey: publicKey})
+    }, []);
 
     // ref for the form element
     const form = useRef();
