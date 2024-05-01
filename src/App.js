@@ -5,6 +5,9 @@ import "./App.css";
 
 const App = () => {
 
+  // loading state
+  const [loading, setLoading] = useState(true);
+
   // state for window width
   const [isTablet, setIsTablet] = useState(window.innerWidth < 910);
   const [isPhone, setIsPhone] = useState(window.innerWidth < 480);
@@ -27,6 +30,17 @@ const App = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // set loading state for 3 seconds
+  useEffect(() => {
+    let interval = setInterval(() => {
+      setLoading(false);
+    }, 3000);
+    return () => {
+      clearInterval(interval);
+    }
+  }, []);
+
+  // for scrolling animations
   useLayoutEffect(() => {
     // gets top of page
     const pageTop = element => element.getBoundingClientRect().top;
@@ -119,45 +133,49 @@ const App = () => {
   }
 
   return (
-    <>
-      <div className="wrapper">
-        <Subsection
-          animate={show.showHome} 
-          className="subsection subsection--home"
-        >
-          <div className="content content--home">
-            <div className="home__text">
-              { homepageTitle() }
-              <div className="subtitle">A Montréal-based home nail salon</div>
+    <div className="wrapper">  
+      {loading && <div>loading</div>}
+        <div style={{
+          visibility: loading ? "hidden" : "visible", 
+          animation: loading ? "" : "fade-in 2s"
+        }}>
+          <Subsection
+            animate={show.showHome} 
+            className="subsection subsection--home"
+          >
+            <div className="content content--home">
+              <div className="home__text">
+                { homepageTitle() }
+                <div className="subtitle">A Montréal-based home nail salon</div>
+              </div>
+              <InstagramItems />
             </div>
-            <InstagramItems/>
-          </div>
-        </Subsection>
-        <Subsection 
-          animate={show.showWork} 
-          ref={workRef}
-          className="subsection subsection--work"
-        >
-          WORK SECTION
-        </Subsection>
-        
-        <Subsection 
-          animate={show.showAbout} 
-          ref={aboutRef}
-          className="subsection subsection--about"
-        >
-          ABOUT SECTION
-        </Subsection>
-        <Subsection 
-          animate={show.showContact} 
-          ref={contactRef}
-          className="subsection subsection--contact"
-        >
-          CONTACT SECTION
-        </Subsection>
-        {copyright()}
-      </div>
-    </>
+          </Subsection>
+          <Subsection 
+            animate={show.showWork} 
+            ref={workRef}
+            className="subsection subsection--work"
+          >
+            WORK SECTION
+          </Subsection>
+          
+          <Subsection 
+            animate={show.showAbout} 
+            ref={aboutRef}
+            className="subsection subsection--about"
+          >
+            ABOUT SECTION
+          </Subsection>
+          <Subsection 
+            animate={show.showContact} 
+            ref={contactRef}
+            className="subsection subsection--contact"
+          >
+            CONTACT SECTION
+          </Subsection>
+          {copyright()}
+        </div>
+    </div>
   );
 };
 

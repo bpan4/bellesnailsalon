@@ -124,3 +124,13 @@ body {
     max-width: 50vw;
   }
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100;
+  }
+}
