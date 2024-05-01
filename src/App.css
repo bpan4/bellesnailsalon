@@ -67,9 +67,9 @@ body {
 }
 
 .content--work {
-  height: 76vh;
-  padding-top: 6vw;
-  padding-bottom: 6vw;
+  height: 78vh;
+  padding-top: 6vh;
+  padding-bottom: 6vh;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
@@ -132,6 +132,11 @@ td {
   padding-left: 10px;
 }
 
+.map {
+  border: solid #FFF 10px;
+  width: 800;
+}
+
 .title {
   font-size: 32px;
   font-weight: 600;
@@ -149,6 +154,12 @@ td {
 
 .tinytext {
   font-size: 11px;
+}
+
+.centered_text {
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 @keyframes load-in {
@@ -193,9 +204,6 @@ td {
     border: solid 5px #FFF;
     width: 60vw;
   }
-  .content--work{
-    height: 85vh;
-  }
   .subtitle--pricing {
     font-size: 16px;
   }
@@ -203,7 +211,7 @@ td {
     font-size: 12px;
   }
   .pricing__container {
-    height: 80%;
+    height: 75%;
   }
   .pricing_table__container{
     height: 100%;
@@ -211,10 +219,37 @@ td {
   }
   th {
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     font-size: 12px;
+  }
+  th:last-child {
+    padding-bottom: 10px;
   }
   td {
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .content {
+    padding-top: 3vh;
+  }
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    padding-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .paragraph {
+    font-size: 12px;
+  }
+
+  .tinytext {
+    font-size: 10px;
   }
 }

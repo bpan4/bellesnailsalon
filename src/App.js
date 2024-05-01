@@ -1,9 +1,10 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import InstagramItems from "./InstagramItems";
-import PricingTable from "./PricingTable";
-import { CITY, PRICING_NOTICES } from "./Constants";
+import WorkPage from "./WorkPage";
+import { CITY } from "./Constants";
 import "./App.css";
+import AboutPage from "./AboutPage";
 
 const App = () => {
 
@@ -13,6 +14,12 @@ const App = () => {
   // state for window width
   const [isTablet, setIsTablet] = useState(window.innerWidth < 910);
   const [isPhone, setIsPhone] = useState(window.innerWidth < 480);
+
+  // state for map size
+  const [mapSize, setMapSize] = useState({
+    width: 0.7 * window.innerWidth, 
+    height: 0.4 * window.innerHeight
+  });
 
   // manages whether sections are shown
   const [show, setShow] = useState({
@@ -36,7 +43,7 @@ const App = () => {
   useEffect(() => {
     let interval = setInterval(() => {
       setLoading(false);
-    }, 3000);
+    }, 4000);
     return () => {
       clearInterval(interval);
     }
@@ -92,6 +99,10 @@ const App = () => {
     const updateSize = () => {
       setIsTablet(window.innerWidth < 910);
       setIsPhone(window.innerWidth < 480);
+      setMapSize({
+        width: 0.7 * window.innerWidth,
+        height: 0.4 * window.innerHeight
+      });
     }
 
     window.addEventListener("scroll", onScroll);
@@ -128,23 +139,24 @@ const App = () => {
     );
   }
 
-  const pricingNotices = () => {
-    return (
-      <div>
-        {PRICING_NOTICES.map((notice) => {
-          return <p className="tinytext" key={notice.title}>
-            *<b>{notice.title}</b>: {notice.content}
-          </p>
-        })}
-      </div>
-    );
-    
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact_anchor");
+    contactSection.scrollIntoView();
   }
 
   // copyright section
   const copyright = () => {
     const currentYear = new Date().getFullYear();
-    return <p style={{textAlign: "center"}}> &copy; Belle's Nail Salon {currentYear} </p>
+    return <p className="centered_text"> 
+      &copy; Belle's Nail Salon {currentYear} 
+    </p>
+  }
+
+  // footnotes section
+  const footnotes = () => {
+    return <p className="tinytext centered_text">
+      Source code available to fellow developers upon request!
+    </p>
   }
 
   return (
@@ -154,6 +166,7 @@ const App = () => {
           visibility: loading ? "hidden" : "visible", 
           animation: loading ? "" : "fade-in 2s"
         }}>
+          {/* Home */}
           <Subsection
             animate={show.showHome} 
             className="subsection subsection--home"
@@ -166,53 +179,39 @@ const App = () => {
               <InstagramItems />
             </div>
           </Subsection>
+
+          {/* Work and Pricing */}
           <Subsection 
             animate={show.showWork} 
             ref={workRef}
             className="subsection subsection--work"
           >
-            <div className="content content--work">
-              <div className="text">
-                <div className="title">
-                  My Work
-                </div>
-                <div className="paragraph">
-                  I specialize in gel manicures on natural nails and regular polish manicures.
-                </div>
-                <div className="paragraph">
-                  To see my work, please visit my Instagram page, @
-                  <a href="https://www.instagram.com/nail.chimp/">nail.chimp</a>.
-                </div>
-              </div>
-              <div className="text">
-                <div className="subtitle subtitle--pricing">
-                  Pricing
-                </div>
-              </div>
-              <div className="pricing__container">
-                <PricingTable/>
-              </div>
-              <div className="text">
-                { pricingNotices() }
-              </div>
-            </div>
+            <WorkPage />
           </Subsection>
           
+          {/* About and Appointments */}
           <Subsection 
             animate={show.showAbout} 
             ref={aboutRef}
             className="subsection subsection--about"
           >
-            ABOUT SECTION
+            <AboutPage
+              scrollToContact={scrollToContact}
+              mapSize={mapSize} 
+            />
           </Subsection>
+
+          {/* Contact */}
           <Subsection 
             animate={show.showContact} 
             ref={contactRef}
             className="subsection subsection--contact"
+            id="contact_anchor"
           >
             CONTACT SECTION
           </Subsection>
           {copyright()}
+          {footnotes()}
         </div>
     </div>
   );
