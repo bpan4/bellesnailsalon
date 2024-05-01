@@ -1,6 +1,8 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import InstagramItems from "./InstagramItems";
+import PricingTable from "./PricingTable";
+import { CITY, PRICING_NOTICES } from "./Constants";
 import "./App.css";
 
 const App = () => {
@@ -126,6 +128,17 @@ const App = () => {
     );
   }
 
+  const pricingNotices = () => {
+    return (
+      <div>
+        {PRICING_NOTICES.map((notice) => {
+          return <p className="tinytext">*<b>{notice.title}</b>: {notice.content}</p>
+        })}
+      </div>
+    );
+    
+  }
+
   // copyright section
   const copyright = () => {
     const currentYear = new Date().getFullYear();
@@ -144,9 +157,9 @@ const App = () => {
             className="subsection subsection--home"
           >
             <div className="content content--home">
-              <div className="home__text">
+              <div className="text">
                 { homepageTitle() }
-                <div className="subtitle">A Montréal-based home nail salon</div>
+                <div className="paragraph">A {CITY}-based home nail salon</div>
               </div>
               <InstagramItems />
             </div>
@@ -156,7 +169,31 @@ const App = () => {
             ref={workRef}
             className="subsection subsection--work"
           >
-            WORK SECTION
+            <div className="content content--work">
+              <div className="text">
+                <div className="title">
+                  My Work
+                </div>
+                <div className="paragraph">
+                  I specialize in gel manicures on natural nails and regular polish manicures.
+                </div>
+                <div className="paragraph">
+                  To see my work, please visit my Instagram page, @
+                  <a href="https://www.instagram.com/nail.chimp/">nail.chimp</a>.
+                </div>
+              </div>
+              <div className="text">
+                <div className="subtitle subtitle--pricing">
+                  Pricing
+                </div>
+              </div>
+              <div className="pricing__container">
+                <PricingTable/>
+              </div>
+              <div className="text">
+                { pricingNotices() }
+              </div>
+            </div>
           </Subsection>
           
           <Subsection 
