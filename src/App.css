@@ -253,7 +253,6 @@ textarea:focus, input:focus {
     padding-bottom: 5px;
     font-size: 14px;
   }
-
   td {
     font-size: 14px;
   }
@@ -313,5 +312,16 @@ textarea:focus, input:focus {
   }
   td {
     font-size: 10px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .content--work {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+  }
+  .content--about {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
   }
 }

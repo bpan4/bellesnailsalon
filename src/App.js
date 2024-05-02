@@ -173,6 +173,7 @@ const App = () => {
         }}>
           {/* Home */}
           <Subsection
+            style={isShort ? {transition: "none", transform: "none"} : {}}
             animate={show.showHome} 
             className="subsection subsection--home"
           >
@@ -187,6 +188,7 @@ const App = () => {
 
           {/* Work and Pricing */}
           <Subsection 
+            style={isShort ? {transition: "none", transform: "none"} : {}}
             animate={show.showWork} 
             ref={workRef}
             className="subsection subsection--work"
@@ -196,6 +198,7 @@ const App = () => {
           
           {/* About and Appointments */}
           <Subsection 
+            style={isShort ? {transition: "none", transform: "none"} : {}}
             animate={show.showAbout} 
             ref={aboutRef}
             className="subsection subsection--about"
@@ -208,6 +211,7 @@ const App = () => {
 
           {/* Contact */}
           <Subsection 
+            style={isShort ? {transition: "none", transform: "none"} : {}}
             animate={show.showContact} 
             ref={contactRef}
             className="subsection subsection--contact"
@@ -223,7 +227,7 @@ const App = () => {
 };
 
 const Subsection = styled.div`
-  ${isShort ? "" : `transform: translateX(${({ animate }) => (animate ? "0" : "-100vw")});`}
+  transform: translateX(${({ animate }) => (animate ? "0" : "-100vw")});
 `;
 
 export default App;
