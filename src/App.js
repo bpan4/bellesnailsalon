@@ -16,6 +16,9 @@ const App = () => {
   const [isTablet, setIsTablet] = useState(window.innerWidth < 910);
   const [isPhone, setIsPhone] = useState(window.innerWidth < 480);
 
+  // state for window height
+  const [isShort, setIsShort] = useState(window.innerHeight < 600);
+
   // state for map size
   const [mapSize, setMapSize] = useState({
     width: 0.7 * window.innerWidth, 
@@ -104,6 +107,7 @@ const App = () => {
         width: 0.7 * window.innerWidth,
         height: 0.4 * window.innerHeight
       });
+      setIsShort(window.innerHeight < 600);
     }
 
     window.addEventListener("scroll", onScroll);
@@ -219,7 +223,7 @@ const App = () => {
 };
 
 const Subsection = styled.div`
-  transform: translateX(${({ animate }) => (animate ? "0" : "-100vw")});
+  ${isShort ? "" : `transform: translateX(${({ animate }) => (animate ? "0" : "-100vw")});`}
 `;
 
 export default App;
