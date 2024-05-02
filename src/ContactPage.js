@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { FORM_ELEMENTS } from "./Constants";
 
-const ContactPage = () => {
+const ContactPage = ({ problemBrowser }) => {
     const [isSpam, setIsSpam] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [sendError, setSendError] = useState(false);
@@ -73,6 +74,39 @@ const ContactPage = () => {
             );
     }
 
+    const formInputs = (disabled) => {
+        return (
+            FORM_ELEMENTS.map((element) => {
+                let input;
+                if (element.type === "short") {
+                    input = <input 
+                        type="text" 
+                        name={element.field} 
+                        placeholder={element.placeholder} 
+                        disabled={disabled}
+                    />
+                } else {
+                    input = <textarea 
+                        name={element.field}
+                        placeholder={element.placeholder} 
+                        disabled={disabled}
+                    />
+                }
+
+                if (disabled) {
+                    return <div className={element.type === "short" ? "cross__container" : "cross__container cross__container--large"}>
+                        { input }
+                        <svg className={element.type === "short" ? "cross cross--small" : "cross"}>
+                            <line x1="0" y1="100%" x2="100%" y2="0" />
+                            <line x1="0" y1="0" x2="100%" y2="100%" />
+                        </svg>
+                    </div>
+                }
+                return input
+            })
+        )
+    }
+
     return (
         <div className="content content--about">
             <div className="text">
@@ -104,10 +138,8 @@ const ContactPage = () => {
                         border: "solid #FFF 10px"
                     }}
                 >
-                    { isSpam ?
+                    { isSpam &&
                         <b>Please do not spam my website!</b>
-                        :
-                        <></>
                     }
                     {submitted &&
                         <span className="centered_text">
@@ -128,22 +160,26 @@ const ContactPage = () => {
                                 width: "100%"
                             }}
                         >
+                            { problemBrowser &&
+                                <span className="error centered_text" style={{padding: "1vh"}}>
+                                    To complete this form, please reopen the website outside your in-app browser!
+                                </span>
+                            }
                             { emptyError &&
                                 <span className="error centered_text" style={{paddingBottom: "1vh"}}>
                                     Please fill out all the following fields to send a message.
                                 </span>
                             }
                             <input type="hidden" name="go_away" value="" />
-                            <input type="text" name="name" placeholder="Name" />
                             <input type="hidden" name="colour" value="" />
-                            <input type="email" name="email" placeholder="Email" />
-                            <input type="hidden" name="length" value="" />
-                            <textarea name="message" placeholder="Message" />
                             <input type="hidden" name="shape" value="" />
+                            <input type="hidden" name="length" value="" />
+                            { formInputs(problemBrowser) }
                             <button 
                                 type="submit"
                                 className="submit_button"
                                 style={{fontWeight: "600"}}
+                                disabled={problemBrowser}
                             >
                                 Submit
                             </button>

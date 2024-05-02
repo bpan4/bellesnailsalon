@@ -19,6 +19,10 @@ const App = () => {
   // state for window height
   const [isShort, setIsShort] = useState(window.innerHeight < 600);
 
+  // state for checking what browser is being used
+  // transitions do not work on Facebook and Instagram browsers
+  const [problemBrowser, setProblemBrowser] = useState(false);
+
   // state for map size
   const [mapSize, setMapSize] = useState({
     width: 0.7 * window.innerWidth, 
@@ -38,16 +42,24 @@ const App = () => {
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
 
-  // scroll to top of the page when page renders/refreshes
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  // set loading state for 3 seconds
-  useEffect(() => {
+    // set loading state for 3 seconds
     let interval = setInterval(() => {
       setLoading(false);
     }, 4000);
+
+    // scroll to top of the page when page renders/refreshes
+    window.scrollTo(0, 0);
+
+    // detect browser being used
+    setProblemBrowser(
+      navigator.userAgent.includes("Instagram") || 
+      navigator.userAgent.includes("FBAN") || 
+      navigator.userAgent.includes("FBAV")
+    );
+
+    console.log(navigator.userAgent)
+
     return () => {
       clearInterval(interval);
     }
@@ -217,7 +229,7 @@ const App = () => {
             className="subsection subsection--contact"
             id="contact_anchor"
           >
-            <ContactPage />
+            <ContactPage problemBrowser={problemBrowser}/>
           </Subsection>
           {copyright()}
           {footnotes()}

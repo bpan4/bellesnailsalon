@@ -56,4 +56,21 @@ export const PRICING_NOTICES = [
         "content" : "please communicate your desired design a few days prior so I may be able to provide a more accurate estimate for the price and length of your appointment."
     }
 ];
- 
+
+export const FORM_ELEMENTS = [
+    {
+        "field" : "name",
+        "placeholder" : "Name",
+        "type" : "short"
+    },
+    {
+        "field" : "email",
+        "placeholder" : "Email",
+        "type" : "short"
+    },
+    {
+        "field" : "message",
+        "placeholder" : "Message",
+        "type" : "long"
+    }
+]
