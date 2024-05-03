@@ -53,7 +53,7 @@ const App = () => {
 
     // detect browser being used
     setProblemBrowser(
-      navigator.userAgent.includes("Instagram") || 
+      !navigator.userAgent.includes("Instagram") || 
       navigator.userAgent.includes("FBAN") || 
       navigator.userAgent.includes("FBAV")
     );
@@ -178,11 +178,21 @@ const App = () => {
 
   return (
     <div className="wrapper">  
-      {loading && <div className="loading"> Loading... </div>}
+      {loading && 
+        <div className="centered_text">
+          <div className="loading"> Loading... </div>
+          { problemBrowser && 
+            <p>For optimal viewing experience, kindly access the website outside your in-app browser, as some features may not display correctly within it.</p>
+          }
+        </div>
+      }
         <div style={{
           visibility: loading ? "hidden" : "visible", 
           animation: loading ? "" : "fade-in 2s"
         }}>
+          { problemBrowser && 
+            <p className="centered_text paragraph">For optimal viewing experience, kindly access the website outside your in-app browser, as some features may not display correctly within it.</p>
+          }
           {/* Home */}
           <Subsection
             style={isShort ? {transition: "none", transform: "none"} : {}}
