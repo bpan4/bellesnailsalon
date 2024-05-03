@@ -44,7 +44,8 @@ const AboutPage = ({ scrollToContact, mapSize }) => {
                     width={mapSize.width}
                     height={mapSize.height}
                     allowFullScreen
-                    loading="eager"
+                    // loading="eager"
+                    loading="lazy"
                     className="map"
                     referrerPolicy="no-referrer-when-downgrade"
                 />

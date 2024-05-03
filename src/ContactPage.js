@@ -80,6 +80,7 @@ const ContactPage = ({ problemBrowser }) => {
                 let input;
                 if (element.type === "short") {
                     input = <input 
+                        key={element.field}
                         type="text" 
                         name={element.field} 
                         placeholder={element.placeholder} 
@@ -87,6 +88,7 @@ const ContactPage = ({ problemBrowser }) => {
                     />
                 } else {
                     input = <textarea 
+                        key={element.field}
                         name={element.field}
                         placeholder={element.placeholder} 
                         disabled={disabled}
