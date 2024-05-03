@@ -213,32 +213,6 @@ textarea:disabled {
   height: calc(100% - 3vh);
 }
 
-.cross__container {
-  position: relative;
-  width: calc(50vw + 4px);
-}
-
-.cross__container--large {
-  height: 50%;
-}
-
-.cross {
-  width: calc(50vw + 4px);
-  height: calc(100% - 3vh);
-  position: absolute;
-  top: 4px;
-  left: 0;
-}
-
-.cross--small {
-  height: 16px;
-}
-
-.cross line {
-  stroke: var(--text-color);
-  stroke-width: 2;
-}
-
 .error {
   color: var(--contact-color-contrast);
 }

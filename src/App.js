@@ -53,7 +53,7 @@ const App = () => {
 
     // detect browser being used
     setProblemBrowser(
-      navigator.userAgent.includes("Instagram") || 
+      !navigator.userAgent.includes("Instagram") || 
       navigator.userAgent.includes("FBAN") || 
       navigator.userAgent.includes("FBAV")
     );

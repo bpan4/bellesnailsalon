@@ -92,16 +92,6 @@ const ContactPage = ({ problemBrowser }) => {
                         disabled={disabled}
                     />
                 }
-
-                if (disabled) {
-                    return <div className={element.type === "short" ? "cross__container" : "cross__container cross__container--large"}>
-                        { input }
-                        <svg className={element.type === "short" ? "cross cross--small" : "cross"}>
-                            <line x1="0" y1="100%" x2="100%" y2="0" />
-                            <line x1="0" y1="0" x2="100%" y2="100%" />
-                        </svg>
-                    </div>
-                }
                 return input
             })
         )
@@ -141,13 +131,18 @@ const ContactPage = ({ problemBrowser }) => {
                     { isSpam &&
                         <b>Please do not spam my website!</b>
                     }
+                    { problemBrowser &&
+                        <span className="error centered_text">
+                            To complete this form, please reopen the website outside your in-app browser!
+                        </span>
+                    }
                     {submitted &&
                         <span className="centered_text">
                             <p>Thank you for your message!</p>
                             <p>A reply will be sent to your email, {clientEmail}.</p>
                         </span>
                     }
-                    { !submitted &&
+                    { !submitted && !problemBrowser &&
                         <form
                             ref={form}
                             onSubmit={(e) => handleSubmit(e)}
@@ -160,11 +155,6 @@ const ContactPage = ({ problemBrowser }) => {
                                 width: "100%"
                             }}
                         >
-                            { problemBrowser &&
-                                <span className="error centered_text" style={{padding: "1vh"}}>
-                                    To complete this form, please reopen the website outside your in-app browser!
-                                </span>
-                            }
                             { emptyError &&
                                 <span className="error centered_text" style={{paddingBottom: "1vh"}}>
                                     Please fill out all the following fields to send a message.
