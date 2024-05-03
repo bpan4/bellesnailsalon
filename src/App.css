@@ -116,6 +116,10 @@ body {
   margin: 10px;
 }
 
+video::-webkit-media-controls-fullscreen-button {
+  display: none;
+}
+
 .pricing__container {
   display: flex;
   flex-direction: column;

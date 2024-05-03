@@ -58,8 +58,6 @@ const App = () => {
       navigator.userAgent.includes("FBAV")
     );
 
-    console.log(navigator.userAgent)
-
     return () => {
       clearInterval(interval);
     }

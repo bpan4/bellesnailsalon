@@ -9,6 +9,10 @@ const InstagramLayout = ({ imageList }) => {
                 if (image.mediaType === VIDEO_TYPE) {
                     return (
                         <video
+                            controls
+                            muted
+                            autoplay="autoplay"
+                            controlsList="nodownload nofullscreen noremoteplayback"
                             key={image.permalink}
                             src={image.mediaUrl}
                             alt="Instagram video from @nail.chimp"
