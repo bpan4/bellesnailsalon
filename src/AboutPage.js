@@ -39,12 +39,11 @@ const AboutPage = ({ scrollToContact, mapSize }) => {
             </div>
             <div style={{display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100%"}}>
                 <iframe 
-                    title="transit-station-map"
+                    title={`Get directions to ${NEAREST_TRANSIT_STATION.name}`}
                     src={NEAREST_TRANSIT_STATION.embeddedUrl} 
                     width={mapSize.width}
                     height={mapSize.height}
                     allowFullScreen
-                    // loading="eager"
                     loading="lazy"
                     className="map"
                     referrerPolicy="no-referrer-when-downgrade"
