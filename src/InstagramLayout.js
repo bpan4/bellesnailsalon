@@ -12,6 +12,7 @@ const InstagramLayout = ({ imageList }) => {
                             controls
                             muted
                             autoplay="autoplay"
+                            loop
                             controlsList="nodownload nofullscreen noremoteplayback"
                             key={image.permalink}
                             src={image.mediaUrl}
