@@ -4,9 +4,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This project is deployed on Netlify, and can be seen [here](https://bellesnailsalon.netlify.app/).
 
+## Dependencies:
+
+This project uses the [EmailJS](https://www.emailjs.com/), [Instagram](https://developers.facebook.com/docs/instagram-api/), and [Google maps](https://developers.google.com/maps) APIs. When cloning this project, please ensure that you have API keys for each service!
+
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Downloads dependencies.
 
 ### `npm start`
 
