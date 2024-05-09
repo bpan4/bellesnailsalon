@@ -1,45 +1,39 @@
-# Getting Started with Belle's Nail Salon, created with Create React App
+# Belle's Nail Salon 💅
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Belle's Nail Salon! This project was designed to showcase my work as a licensed nail technician, and as a contact point for new clients. You may view the website [here](https://bellesnailsalon.netlify.app/)!
 
-This project is deployed on Netlify, and can be seen [here](https://bellesnailsalon.netlify.app/).
+## Technologies Used 🚀
+- **Frontend:** [Typescript](https://www.typescriptlang.org/), CSS, [React.js](https://react.dev/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **Libraries:** [EmailJS](https://www.emailjs.com/)
+- **APIs:** [Instagram Graph API](https://developers.facebook.com/docs/instagram-api/), [Google Maps API](https://developers.google.com/maps)
+- **Deployment:** [Netlify](https://www.netlify.com/with/react/)
 
-## Dependencies:
+## How to Use 📝
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Install dependencies using `npm install`.
+4. Run the server using `npm start`.
+5. Access the application through your web browser at [localhost:8080](http://localhost:8080/) (pre-configured).
 
-This project uses the [EmailJS](https://www.emailjs.com/), [Instagram](https://developers.facebook.com/docs/instagram-api/), and [Google maps](https://developers.google.com/maps) APIs. When cloning this project, please ensure that you have API keys for each service!
+## Features 🌟
+- **Email Notifications:** Receive email inquiries from new clients. *My business email is obscured from users, and protected from spam using the EmailJS API services.*
+- **Services List:** Showcase available services with pricing and time estimations.
+- **Location Mapping:** Locate the nearest transit station using Google Maps integration.
+- **Social Media Integration:** Stay updated with Instagram posts directly within the application.
 
-## Available Scripts
+## Contributing 🤝
+Contributions are welcome! Please feel free to submit issues or pull requests.
 
-In the project directory, you can run:
+## License 📄
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/bpan4/bellesnailsalon/blob/main/LICENSE) file for details.
 
-### `npm install`
+## Acknowledgements 🙏
+Special thanks to all contributors of the libraries/frameworks used in this project! Without you, I would have had loads more trouble making my own website!
 
-Downloads dependencies.
+## Contact ℹ️
+For any inquiries, please feel free to submit issues!
 
-### `npm start`
+Enjoy using [Belle's Nail Salon](https://bellesnailsalon.netlify.app/)! 💖
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
