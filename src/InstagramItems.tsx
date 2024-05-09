@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import InstagramLayout from "./InstagramLayout";
+import { InstaItem } from "./Interface";
 
 const InstagramItems = () => {
 
     // stores images from Instagram API
-    const [imageList, setImageList] = useState([])
+    const [imageList, setImageList] : [InstaItem[], Function] = useState([]);
 
     useEffect(() => {
         // params needed to query the Instagram API
-        const userId = process.env.REACT_APP_USER_ID;
-        const accessToken = process.env.REACT_APP_ACCESS_CODE;
+        const userId = import.meta.env.VITE_USER_ID;
+        const accessToken = import.meta.env.VITE_ACCESS_CODE;
 
         // fetches individual images/videos
-        const fetchMedia = async (id) => {
+        const fetchMedia = async (id : string) => {
             const mediaUrl = `https://graph.instagram.com/${id}?access_token=${accessToken}&fields=media_url,permalink,media_type`;
             const image = await fetch (mediaUrl);
             const imageJson = await image.json();
@@ -27,7 +28,7 @@ const InstagramItems = () => {
         }
 
         // gets all the post ID's of user
-        const fetchAll = async (userId) => {
+        const fetchAll = async (userId : string) => {
             // base URL for fetching Instagram items
             const instaUrl = `https://graph.instagram.com/${userId}/media?access_token=${accessToken}`
             // validate user ID and access token
@@ -38,7 +39,7 @@ const InstagramItems = () => {
             const allPosts = await fetch(instaUrl);
             const allPostsJson = (await allPosts.json()).data;
 
-            const instaItems = [];
+            const instaItems : InstaItem[] = [];
 
             for (let i = 0 ; i < allPostsJson.length && i < 3 ; i++) {
                 let postId = allPostsJson[i].id;

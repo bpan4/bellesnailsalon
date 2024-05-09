@@ -1,7 +1,7 @@
-import React from "react";
 import { INSTAGRAM_URL, NEAREST_TRANSIT_STATION, STUDIO_ACCESSIBILITY } from "./Constants";
+import { AboutPageProps } from "./Interface";
 
-const AboutPage = ({ scrollToContact, mapSize }) => {
+const AboutPage = ({ scrollToContact, mapSize } : AboutPageProps) => {
     return (
         <div className="content content--about">
             <div className="text">

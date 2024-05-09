@@ -1,8 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, SyntheticEvent, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
 import { FORM_ELEMENTS } from "./Constants";
 
-const ContactPage = ({ problemBrowser }) => {
+type contactPageProps = {
+  problemBrowser: boolean,
+};
+
+const ContactPage = ({ problemBrowser } : contactPageProps) => {
     const [isSpam, setIsSpam] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [sendError, setSendError] = useState(false);
@@ -10,21 +14,21 @@ const ContactPage = ({ problemBrowser }) => {
     const [clientEmail, setClientEmail] = useState("");
 
     // env variables used by EmailJS
-    const serviceId = process.env.REACT_APP_EMAIL_SERVICE_ID;
-    const templateId = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
+    const serviceId = import.meta.env.VITE_EMAIL_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
 
     // initialize EmailJS with the public key
     useEffect(() => {
-        const publicKey = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
+        const publicKey = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
         emailjs.init({publicKey: publicKey})
     }, []);
 
     // ref for the form element
-    const form = useRef();
+    const form = useRef<HTMLDivElement>(null);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData(e.target);
+        const formData = new FormData(e.currentTarget);
         
         // reset all states
         setIsSpam(false);
@@ -54,7 +58,7 @@ const ContactPage = ({ problemBrowser }) => {
             return;
         }
 
-        setClientEmail(formData.get("email"));
+        setClientEmail(formData.get("email") as string);
 
         // send email using EmailJS
         await emailjs
@@ -74,7 +78,7 @@ const ContactPage = ({ problemBrowser }) => {
             );
     }
 
-    const formInputs = (disabled) => {
+    const formInputs = (disabled: boolean) => {
         return (
             FORM_ELEMENTS.map((element) => {
                 let input;
@@ -85,6 +89,7 @@ const ContactPage = ({ problemBrowser }) => {
                         name={element.field} 
                         placeholder={element.placeholder} 
                         disabled={disabled}
+                        autoComplete="on"
                     />
                 } else {
                     input = <textarea 
@@ -129,6 +134,7 @@ const ContactPage = ({ problemBrowser }) => {
                         width: "95%",
                         border: "solid #FFF 10px"
                     }}
+                    ref={form}
                 >
                     { isSpam &&
                         <b>Please do not spam my website!</b>
@@ -146,7 +152,6 @@ const ContactPage = ({ problemBrowser }) => {
                     }
                     { !submitted && !problemBrowser &&
                         <form
-                            ref={form}
                             onSubmit={(e) => handleSubmit(e)}
                             style={{
                                 display: "flex", 

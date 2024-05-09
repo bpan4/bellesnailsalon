@@ -6,6 +6,8 @@ import AboutPage from "./AboutPage";
 import ContactPage from "./ContactPage";
 import { CITY } from "./Constants";
 import "./App.css";
+import { SubsectionType } from "./Interface";
+import { useLocation } from "react-router";
 
 const App = () => {
 
@@ -38,9 +40,10 @@ const App = () => {
   });
 
   // references for each section
-  const workRef = useRef(null);
-  const aboutRef = useRef(null);
-  const contactRef = useRef(null);
+  const homeRef = useRef<HTMLDivElement>(null);
+  const workRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // set loading state for 3 seconds
@@ -50,6 +53,7 @@ const App = () => {
 
     // scroll to top of the page when page renders/refreshes
     window.scrollTo(0, 0);
+    window.history.scrollRestoration = 'manual';
 
     // detect browser being used
     setProblemBrowser(
@@ -66,12 +70,12 @@ const App = () => {
   // for scrolling animations
   useLayoutEffect(() => {
     // gets top of page
-    const pageTop = element => element.getBoundingClientRect().top;
+    const pageTop = (element: HTMLElement) => element?.getBoundingClientRect().top;
     
     // gets positions of each section
-    const workPosition = pageTop(workRef.current);
-    const aboutPosition = pageTop(aboutRef.current);
-    const contactPosition = pageTop(contactRef.current);
+    const workPosition = pageTop(workRef.current as HTMLElement);
+    const aboutPosition = pageTop(aboutRef.current as HTMLElement);
+    const contactPosition = pageTop(contactRef.current as HTMLElement);
 
     // scroll event
     const onScroll = () => {
@@ -155,7 +159,7 @@ const App = () => {
   }
 
   const scrollToContact = () => {
-    const contactSection = document.getElementById("contact_anchor");
+    const contactSection: HTMLElement = document.getElementById("contact_anchor") as HTMLElement;
     contactSection.scrollIntoView();
   }
 
@@ -194,7 +198,8 @@ const App = () => {
           {/* Home */}
           <Subsection
             style={isShort ? {transition: "none", transform: "none"} : {}}
-            animate={show.showHome} 
+            animate={show.showHome}
+            ref={homeRef}
             className="subsection subsection--home"
           >
             <div className="content content--home">
@@ -246,7 +251,7 @@ const App = () => {
   );
 };
 
-const Subsection = styled.div`
+const Subsection = styled.div<SubsectionType>`
   transform: translateX(${({ animate }) => (animate ? "0" : "-100vw")});
 `;
 

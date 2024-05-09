@@ -1,8 +1,8 @@
-import React from "react";
+import { InstagramLayoutProps } from "./Interface";
 
 const VIDEO_TYPE = "VIDEO";
 
-const InstagramLayout = ({ imageList }) => {
+const InstagramLayout = ({ imageList } : InstagramLayoutProps) => {
     return (
         <div className="media__container">
             {imageList.map((image) => {
@@ -11,12 +11,12 @@ const InstagramLayout = ({ imageList }) => {
                         <video
                             controls
                             muted
-                            autoplay="autoplay"
+                            autoPlay={true}
                             loop
                             controlsList="nodownload nofullscreen noremoteplayback"
                             key={image.permalink}
                             src={image.mediaUrl}
-                            alt="Instagram video from @nail.chimp"
+                            // alt="Instagram video from @nail.chimp"
                             className="media"
                         />
                     )
