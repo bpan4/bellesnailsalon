@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: Verdana, sans-serif;
+  font-family: Optima, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -237,7 +237,7 @@ textarea:disabled {
 }
 
 .tinytext {
-  font-size: 11px;
+  font-size: 14px;
 }
 
 .centered_text {
@@ -271,6 +271,9 @@ textarea:disabled {
 @media screen and (max-width: 768px) {
   .media {
     max-width: 24vw;
+  }
+  .tinytext {
+    font-size: 12px;
   }
   th {
     padding-top: 5px;
