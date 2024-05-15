@@ -5,6 +5,7 @@ import WorkPage from "./pages/WorkPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import { CITY } from "./Constants";
+import Logo from "./resources/logo.png";
 import "./App.css";
 import { SubsectionType } from "./resources/Interface";
 
@@ -180,7 +181,15 @@ const App = () => {
   return (
     <div className="wrapper">  
       {loading && 
-        <div className="centered_text">
+        <div 
+          className="text centered_text" 
+          style={{alignItems: "center"}}
+        >
+          <img 
+            src={Logo} 
+            alt="Instagram post from @nail.chimp"
+            className="logo"
+          />
           <div className="loading"> Loading... </div>
           { problemBrowser && 
             <p>For optimal viewing experience, kindly access the website outside your in-app browser, as some features may not display correctly within it.</p>

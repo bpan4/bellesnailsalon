@@ -32,6 +32,11 @@ body {
   animation: load-in 1s steps(4) infinite;
 }
 
+.logo {
+  max-width: 12vw;
+  padding-bottom: 2vh;
+}
+
 .subsection {
   height: 90vh;
   width: 90vw;
@@ -263,12 +268,18 @@ textarea:disabled {
 }
 
 @media screen and (max-width: 1024px) {
+  .logo {
+    max-width: 14vw;
+  }
   .media {
     width: 14vw;
   }
 }
 
 @media screen and (max-width: 768px) {
+  .logo {
+    max-width: 24vw;
+  }
   .media {
     max-width: 24vw;
   }
@@ -286,6 +297,9 @@ textarea:disabled {
 }
 
 @media screen and (max-width: 480px) {
+  .logo {
+    max-width: 60vw;
+  }
   .media {
     border: solid 5px white;
     width: 60vw;
