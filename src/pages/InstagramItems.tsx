@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import InstagramLayout from "./InstagramLayout";
-import { InstaItem } from "./Interface";
+import { InstaItem } from "../resources/Interface";
 
 const InstagramItems = () => {
 

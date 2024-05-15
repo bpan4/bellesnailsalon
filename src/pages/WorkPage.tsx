@@ -1,5 +1,4 @@
-import React from "react";
-import { INSTAGRAM_URL, PRICING_NOTICES } from "./Constants";
+import { INSTAGRAM_URL, PRICING_NOTICES } from "../Constants";
 import PricingTable from "./PricingTable";
 
 const WorkPage = () => {

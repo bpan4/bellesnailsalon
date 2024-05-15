@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef, SyntheticEvent, FormEvent } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
 import emailjs from "@emailjs/browser";
-import { FORM_ELEMENTS } from "./Constants";
+import { FORM_ELEMENTS } from "../Constants";
 
 type contactPageProps = {
   problemBrowser: boolean,

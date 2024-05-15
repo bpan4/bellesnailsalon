@@ -1,4 +1,4 @@
-import { FormItem, NoteItem, ServiceItem, TransitItem } from "./Interface";
+import { FormItem, NoteItem, ServiceItem, TransitItem } from "./resources/Interface";
 
 export const CITY = "Montréal";
 

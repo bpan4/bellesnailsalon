@@ -1,13 +1,12 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import InstagramItems from "./InstagramItems";
-import WorkPage from "./WorkPage";
-import AboutPage from "./AboutPage";
-import ContactPage from "./ContactPage";
+import InstagramItems from "./pages/InstagramItems";
+import WorkPage from "./pages/WorkPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import { CITY } from "./Constants";
 import "./App.css";
-import { SubsectionType } from "./Interface";
-import { useLocation } from "react-router";
+import { SubsectionType } from "./resources/Interface";
 
 const App = () => {
 

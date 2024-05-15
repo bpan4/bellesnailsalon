@@ -1,5 +1,4 @@
-import React from "react";
-import { PRICING_LIST } from "./Constants";
+import { PRICING_LIST } from "../Constants";
 
 const PricingTable = () => {
     return (

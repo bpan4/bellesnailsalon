@@ -1,4 +1,4 @@
-import { InstagramLayoutProps } from "./Interface";
+import { InstagramLayoutProps } from "../resources/Interface";
 
 const VIDEO_TYPE = "VIDEO";
 
