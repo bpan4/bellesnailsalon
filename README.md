@@ -13,7 +13,7 @@ Welcome to Belle's Nail Salon! This project was designed to showcase my work as 
 1. Clone the repository to your local machine.
 2. Navigate to the project directory.
 3. Install dependencies using `npm install`.
-4. Run the server using `npm start`.
+4. Run the server using `npm run dev`.
 5. Access the application through your web browser at [localhost:8080](http://localhost:8080/) (pre-configured).
 
 ## Features 🌟
